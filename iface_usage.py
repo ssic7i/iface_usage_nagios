@@ -59,14 +59,14 @@ def get_output(run_params):
         if len(line.split())>1:
             if line.split()[0] == 'rx':
                 if line.split()[2] == 'Mbit/s':
-                    result_data['rx'] = float(line.split()[1]) * 1024
+                    result_data['rx'] = float(line.split()[1].replace(',', '.')) * 1024
                 else:
-                    result_data['rx'] = float(line.split()[1])
+                    result_data['rx'] = float(line.split()[1].replace(',', '.'))
             elif line.split()[0] == 'tx':
                 if line.split()[2] == 'Mbit/s':
-                    result_data['tx'] = float(line.split()[1]) * 1024
+                    result_data['tx'] = float(line.split()[1].replace(',', '.')) * 1024
                 else:
-                    result_data['tx'] = float(line.split()[1])
+                    result_data['tx'] = float(line.split()[1].replace(',', '.'))
     return result_data
 
 def check_data(params_in):
